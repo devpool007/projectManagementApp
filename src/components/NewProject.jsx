@@ -1,11 +1,29 @@
 import Input from "./Input";
+import { useRef} from "react";
 
-export default function NewProject({ isSidebarOpen }) {
+export default function NewProject({ isSidebarOpen, onAdd }) {
+
+    const title = useRef();
+    const description = useRef();
+    const dueDate = useRef();
+
+    function handleSave(){
+        const enteredTitle = title.current.value;
+        const enteredDescription = description.current.value;
+        const enteredDueDate = dueDate.current.value;
+
+        //validation
+        onAdd({
+            title : enteredTitle,
+            description : enteredDescription,
+            dueDate : enteredDueDate 
+        });
+    }
   return (
     <div
       className={` ${
         isSidebarOpen ? "translate-x-90" : "translate-x-20"
-      }  transition-transform duration-300 ease-in-out w-[35rem] mt-12`}
+      }  transition-transform duration-300 ease-in-out w-2/3 mt-12`}
     >
       <menu className="flex items-center justify-end gap-4 my-4">
         <li>
@@ -14,15 +32,15 @@ export default function NewProject({ isSidebarOpen }) {
           </button>
         </li>
         <li>
-          <button className="bg-stone-800 text-stone-50 hover:bg-stone-950 px-6 py-2 rounded-md">
+          <button onClick={handleSave} className="bg-stone-800 text-stone-50 hover:bg-stone-950 px-6 py-2 rounded-md">
             Save
           </button>
         </li>
       </menu>
       <div>
-        <Input label="Title" />
-        <Input label="Description" isTextArea />
-        <Input label="Due Date" />
+        <Input type="text" ref={title} label="Title" />
+        <Input ref={description} label="Description" isTextArea />
+        <Input type="date" ref={dueDate} label="Due Date" />
       </div>
     </div>
   );

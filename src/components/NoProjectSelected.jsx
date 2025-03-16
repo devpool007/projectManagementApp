@@ -8,7 +8,7 @@ export default function NoProjectSelected({
 }) {
   const divClassName = `${
     isSidebarOpen ? "translate-x-90" : "translate-x-20"
-  } transition-transform duration-300 ease-in-out mt-24 items-center text-center w-2/3`;
+  } transition-transform duration-300 ease-in-out mt-28 items-center text-center w-2/3`;
 
   return (
     <div className={divClassName}>
