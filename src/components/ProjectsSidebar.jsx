@@ -15,7 +15,7 @@ export default function ProjectsSidebar() {
       >
         <button
         onClick={handleToggle}
-        className="relative top-3 left-[calc(var(--width-aside)-40px)] p-2.5 bg-stone-500 text-stone-50 rounded-md hover:bg-stone-600"
+        className="relative top-3 left-[calc(var(--width-aside)-40px)] p-2.5 bg-stone-600 text-stone-50 rounded-md hover:bg-stone-400"
         aria-label={isOpen ? "Close Sidebar" : "Open Sidebar"}
       >
         <img
