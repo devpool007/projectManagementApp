@@ -1,4 +1,5 @@
-
+import addProjectImg from "../assets/plus.png"
+import RoundButton from "./RoundButton";
 
 export default function ProjectsSidebar({isOpen, handleToggle}) {
 
@@ -27,16 +28,7 @@ export default function ProjectsSidebar({isOpen, handleToggle}) {
         Your Projects
       </h2>
       <div className="px-5">
-        <span className="flex items-center space-x-2 mb-4">
-          <button className="p-2 text-base rounded-full bg-stone-500 hover:bg-stone-400">
-            <img
-              src="/src/assets/plus.png"
-              alt="Add"
-              className="w-4 h-4 md:w-5 md:h-5"
-            />
-          </button>
-          <p>Add Project</p>
-        </span>
+      <RoundButton image={addProjectImg} text="Add Project"/>
       </div>
       <ul></ul>
     </aside>
