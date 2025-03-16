@@ -1,7 +1,7 @@
 import addProjectImg from "../assets/plus.png"
 import RoundButton from "./RoundButton";
 
-export default function ProjectsSidebar({isOpen, handleToggle}) {
+export default function ProjectsSidebar({isOpen, handleToggle, onStartAddProject}) {
 
   //className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-75 rounded-r-2xl"
   return (
@@ -28,7 +28,7 @@ export default function ProjectsSidebar({isOpen, handleToggle}) {
         Your Projects
       </h2>
       <div className="px-5">
-      <RoundButton image={addProjectImg} text="Add Project"/>
+      <RoundButton onClick={onStartAddProject} image={addProjectImg} text="Add Project"/>
       </div>
       <ul></ul>
     </aside>

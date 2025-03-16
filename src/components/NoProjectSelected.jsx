@@ -1,9 +1,17 @@
 import noProjectImage from "../assets/no-projects.png";
-import createProjectImg from "../assets/create.png"
+import createProjectImg from "../assets/create.png";
 import RoundButton from "./RoundButton";
-export default function NoProjectSelected() {
+
+export default function NoProjectSelected({
+  isSidebarOpen,
+  onStartAddProject,
+}) {
+  const divClassName = `${
+    isSidebarOpen ? "translate-x-90" : "translate-x-20"
+  } transition-transform duration-300 ease-in-out mt-24 items-center text-center w-2/3`;
+
   return (
-    <div className="mt-24 items-center text-center w-2/3">
+    <div className={divClassName}>
       <img
         src={noProjectImage}
         alt="An empty task list"
@@ -16,7 +24,11 @@ export default function NoProjectSelected() {
         Select a project or get started with a new one
       </p>
       <div className="mt-4 flex justify-center">
-        <RoundButton image={createProjectImg} text="Create Project" />
+        <RoundButton
+          onClick={onStartAddProject}
+          image={createProjectImg}
+          text="Create Project"
+        />
       </div>
     </div>
   );
