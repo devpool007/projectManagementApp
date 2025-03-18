@@ -32,7 +32,7 @@ function App() {
 
       return {
         ...prevState,
-        selectedProjectId: undefined,  
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject],
       };
     });
@@ -61,6 +61,7 @@ function App() {
         onStartAddProject={handleStartAddProject}
         isOpen={isSidebarOpen}
         handleToggle={handleToggle}
+        projects={projectsState.projects}
       />
       {content}
     </main>

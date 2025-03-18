@@ -1,8 +1,12 @@
-import addProjectImg from "../assets/plus.png"
+import addProjectImg from "../assets/plus.png";
 import RoundButton from "./RoundButton";
 
-export default function ProjectsSidebar({isOpen, handleToggle, onStartAddProject}) {
-
+export default function ProjectsSidebar({
+  isOpen,
+  handleToggle,
+  onStartAddProject,
+  projects,
+}) {
   //className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-75 rounded-r-2xl"
   return (
     <aside
@@ -28,9 +32,20 @@ export default function ProjectsSidebar({isOpen, handleToggle, onStartAddProject
         Your Projects
       </h2>
       <div className="px-5">
-      <RoundButton onClick={onStartAddProject} image={addProjectImg} text="Add Project"/>
+        <RoundButton
+          onClick={onStartAddProject}
+          image={addProjectImg}
+          text="Add Project"
+        />
       </div>
-      <ul></ul>
+      <ul className="px-5 pt-6 mb-8">
+        {" "}
+        {projects.map((project) => (
+          <li key = {project.id}>
+          <button className="w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200 hover:bg-stone-800 ">{project.title}</button>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }
