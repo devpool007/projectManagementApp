@@ -23,6 +23,15 @@ function App() {
     });
   }
 
+  function handleCancelProject(){
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+      };
+    });
+  }
+
   function handleAddProject(projectData) {
     setProjectsState((prevState) => {
       const newProject = {

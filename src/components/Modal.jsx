@@ -15,8 +15,8 @@ const Modal = forwardRef(({ children, buttonCaption }, ref) => {
   return createPortal(
     <dialog ref={dialog} className={dialogClass}>
       {children}
-      <form method="dialog">
-        <button>{buttonCaption}</button>
+      <form method="dialog" className="mt-4 text-right">
+        <button className="border-red-400 border-1 rounded-md px-6 py-1 hover:bg-stone-800 text-stone-100 bg-stone-600">{buttonCaption}</button>
       </form>
     </dialog>,
     document.getElementById("modal-root")

@@ -2,7 +2,7 @@ import Input from "./Input";
 import Modal from "./Modal";
 import { useRef } from "react";
 
-export default function NewProject({ isSidebarOpen, onAdd }) {
+export default function NewProject({ isSidebarOpen, onAdd, onCancel }) {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -31,9 +31,11 @@ export default function NewProject({ isSidebarOpen, onAdd }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Close">
-        <h2>Invalid Input</h2>
-        <p>Oops... U didnt enter values</p>
-        <p>Please make sure </p>
+        <h2 className="text-2xl font-bold text-red-600 mb-4">Invalid Input</h2>
+        <p className="text-stone-700 mb-2">Oops... You didn't enter values.</p>
+        <p className="text-stone-700">
+          Please make sure all fields are filled out.
+        </p>
       </Modal>
       <div
         className={` ${
@@ -42,7 +44,7 @@ export default function NewProject({ isSidebarOpen, onAdd }) {
       >
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
-            <button className="text-stone-800 hover:text-stone-950">
+            <button onClick={onCancel} className="text-stone-800 hover:text-stone-950">
               Cancel
             </button>
           </li>
