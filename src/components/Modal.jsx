@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 
 const Modal = forwardRef(({ children, buttonCaption }, ref) => {
   const dialog = useRef();
+  const dialogClass = "fixed m-auto inset-0 rounded-lg shadow-lg p-6 backdrop:bg-stone-900/90 w-96";
   useImperativeHandle(ref, () => {
     return {
       open() {
@@ -12,7 +13,7 @@ const Modal = forwardRef(({ children, buttonCaption }, ref) => {
   });
 
   return createPortal(
-    <dialog ref={dialog} className="fixed m-auto inset-0 rounded-lg shadow-lg p-6 backdrop:bg-stone-900/90 w-96">
+    <dialog ref={dialog} className={dialogClass}>
       {children}
       <form method="dialog">
         <button>{buttonCaption}</button>
