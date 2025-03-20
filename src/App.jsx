@@ -23,7 +23,7 @@ function App() {
     });
   }
 
-  function handleCancelProject(){
+  function handleCancelProject() {
     setProjectsState((prevState) => {
       return {
         ...prevState,
@@ -47,13 +47,26 @@ function App() {
     });
   }
 
+  function handleSelectProject(id) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: id, 
+      };
+    });
+  }
+
   console.log(projectsState);
 
   let content;
 
   if (projectsState.selectedProjectId === null) {
     content = (
-      <NewProject onAdd={handleAddProject} isSidebarOpen={isSidebarOpen} />
+      <NewProject
+        onAdd={handleAddProject}
+        onCancel={handleCancelProject}
+        isSidebarOpen={isSidebarOpen}
+      />
     );
   } else if (projectsState.selectedProjectId === undefined) {
     content = (
@@ -71,6 +84,7 @@ function App() {
         isOpen={isSidebarOpen}
         handleToggle={handleToggle}
         projects={projectsState.projects}
+        onSelectProject={handleSelectProject}
       />
       {content}
     </main>
